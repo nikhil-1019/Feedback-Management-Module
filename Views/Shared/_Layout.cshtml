@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Feedback Management Module</title>
+    <link rel="stylesheet" href="~/Content/site.css" />
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="@Url.Action("Index", "feedback")">Feedback Management Module</a>
+        @Html.Partial("_Navigation")
+    </header>
+    <main class="container">
+        @RenderBody()
+    </main>
+    <footer>Practical 7 · .NET Technologies</footer>
+</body>
+</html>

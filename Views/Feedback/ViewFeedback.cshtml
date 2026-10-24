@@ -1,0 +1,31 @@
+@model IEnumerable<feedback1.Models.Feedback>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "View Feedback";
+}
+<section class="panel wide">
+    <p class="eyebrow">RESPONSES</p>
+    <h1>Student Feedback</h1>
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Student Name</th><th>Enrollment No</th><th>Subject</th><th>Rating</th><th>Comment</th></tr></thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr><td>@item.StudentName</td><td>@item.EnrollmentNo</td><td>@item.Subject</td><td><span class="rating">@item.Rating / 5</span></td><td>@item.Comment</td></tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p class="empty">No feedback has been submitted yet.</p>
+    }
+    <div class="actions">
+        @Html.ActionLink("Give Feedback", "Create", "feedback", null, new { @class = "button" })
+        @Html.ActionLink("Back to Home", "Index", "feedback", null, new { @class = "button button-light" })
+    </div>
+</section>
